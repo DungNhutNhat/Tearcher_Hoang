@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Tearcher_Hoang.Models.SanPham>
+
+<h1>List of Products</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá Tiền</th>
+            <th>Trạng Thái</th>
+            <th>ID Nhà Sản Xuất</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Ten</td>
+                <td>@item.GiaTien</td>
+                <td>@item.TrangThai</td>
+                <td>@item.IDNhaSanXuat</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
+                    <form asp-action="Delete" method="post" style="display:inline;">
+                        <input type="hidden" name="ID" value="@item.ID" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <form asp-action="Rollback" method="post" style="display:inline;">
+                        <input type="hidden" name="ID" value="@item.ID" />
+                        <button type="submit" class="btn btn-warning">Rollback</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
