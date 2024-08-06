@@ -127,39 +127,6 @@ namespace Tearcher_Hoang.Controllers
 
             return View(product);
         }
-        //[HttpPost]
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    var product = await dbContext.sanPhams
-        //        .AsNoTracking()
-        //        .FirstOrDefaultAsync(x => x.ID == id);
-        //    if (product is not null)
-        //    {
-        //        // Lưu dữ liệu cũ vào session
-        //        HttpContext.Session.SetString("DeletedProductData", JsonConvert.SerializeObject(product));
-
-        //        dbContext.sanPhams.Remove(product);
-        //        await dbContext.SaveChangesAsync();
-        //    }
-        //    return RedirectToAction("List");
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> RollbackDelete()
-        //{
-        //    var deletedProductData = HttpContext.Session.GetString("DeletedProductData");
-        //    if (!string.IsNullOrEmpty(deletedProductData))
-        //    {
-        //        var deletedProduct = JsonConvert.DeserializeObject<SanPham>(deletedProductData);
-        //        var existingProduct = await dbContext.sanPhams.FindAsync(deletedProduct.ID);
-        //        if (existingProduct == null)
-        //        {
-        //            await dbContext.sanPhams.AddAsync(deletedProduct);
-        //            await dbContext.SaveChangesAsync();
-        //        }
-        //    }
-        //    return RedirectToAction("List");
-        //}
 
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
